@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 180" role="img" aria-label="Personal loan form illustration">
+  <defs>
+    <linearGradient id="plfBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d6e8fc"/>
+      <stop offset="1" stop-color="#bad5f3"/>
+    </linearGradient>
+  </defs>
+  <rect width="360" height="180" rx="16" fill="url(#plfBg)"/>
+
+  <rect x="30" y="22" width="182" height="136" rx="12" fill="#fbfdff" stroke="#c6d9ef"/>
+  <text x="46" y="45" fill="#2f679f" font-size="13" font-family="Arial" font-weight="700">PERSONAL LOAN FORM</text>
+  <rect x="46" y="54" width="148" height="6" rx="3" fill="#5f84b1"/>
+  <rect x="46" y="67" width="136" height="6" rx="3" fill="#5f84b1"/>
+  <rect x="46" y="80" width="120" height="6" rx="3" fill="#8fa9c7"/>
+  <rect x="46" y="93" width="130" height="6" rx="3" fill="#8fa9c7"/>
+
+  <rect x="46" y="109" width="70" height="32" rx="6" fill="#e2ecf8"/>
+  <path d="M56 125l8 8 14-16" stroke="#63a66d" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <rect x="126" y="112" width="62" height="8" rx="4" fill="#6f92b8"/>
+  <rect x="126" y="126" width="48" height="8" rx="4" fill="#9ab2cb"/>
+
+  <circle cx="274" cy="66" r="30" fill="#4d83be"/>
+  <text x="274" y="74" text-anchor="middle" fill="#ffffff" font-size="26" font-family="Arial" font-weight="700">₹</text>
+
+  <rect x="236" y="108" width="86" height="42" rx="10" fill="#f8fbff" stroke="#bed3ea"/>
+  <circle cx="254" cy="129" r="10" fill="#6ab36b"/>
+  <path d="M249 129l4 4 7-8" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <text x="275" y="132" fill="#4c79a7" font-size="11" font-family="Arial" font-weight="700">APPROVED</text>
+
+  <rect x="24" y="154" width="312" height="10" rx="5" fill="#dfeaf6"/>
+</svg>

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 180" role="img" aria-label="Driving license illustration">
+  <defs>
+    <linearGradient id="dBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#deebf8"/>
+      <stop offset="1" stop-color="#bfd5ed"/>
+    </linearGradient>
+    <linearGradient id="dCard" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fbff"/>
+      <stop offset="1" stop-color="#eaf2fb"/>
+    </linearGradient>
+  </defs>
+  <rect width="360" height="180" rx="16" fill="url(#dBg)"/>
+  <rect x="20" y="28" width="320" height="122" rx="12" fill="url(#dCard)" stroke="#c5d8ec"/>
+
+  <rect x="34" y="41" width="208" height="92" rx="10" fill="#d9e7f6" stroke="#bbd0e7"/>
+  <rect x="48" y="55" width="72" height="48" rx="8" fill="#c8d8ea"/>
+  <circle cx="84" cy="74" r="10" fill="#5f7fa6"/>
+  <path d="M70 96c4-8 9-12 14-12 6 0 11 4 14 12" fill="#7997ba"/>
+
+  <text x="132" y="64" fill="#2f6299" font-size="12" font-family="Arial" font-weight="700">DRIVING LICENSE</text>
+  <rect x="132" y="72" width="92" height="6" rx="3" fill="#4c79a7"/>
+  <rect x="132" y="84" width="82" height="6" rx="3" fill="#6a8fb8"/>
+  <rect x="132" y="96" width="72" height="6" rx="3" fill="#93adca"/>
+
+  <circle cx="284" cy="72" r="24" fill="#2f6bae"/>
+  <circle cx="284" cy="72" r="13" fill="#dbe8f6"/>
+  <circle cx="284" cy="72" r="5" fill="#2f6bae"/>
+  <rect x="259" y="106" width="50" height="14" rx="7" fill="#6f8fb4"/>
+  <text x="284" y="116" text-anchor="middle" fill="#ffffff" font-size="10" font-family="Arial" font-weight="700">DL</text>
+
+  <rect x="34" y="138" width="292" height="6" rx="3" fill="#9eb6d0"/>
+  <rect x="22" y="154" width="316" height="10" rx="5" fill="#dfeaf6"/>
+</svg>

@@ -1,0 +1,82 @@
+:host { display: block; }
+
+.queue-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #eaf1fb 0%, #f3f7fd 40%, #e7eef9 100%);
+  padding: 10px 14px 16px;
+}
+
+.queue-shell {
+  border: 1px solid #cfddef;
+  border-radius: 10px;
+  background: #f2f7fe;
+  padding: 16px;
+}
+
+.head h2 {
+  margin: 0;
+  color: #2a4871;
+}
+
+.head p {
+  margin: 5px 0 0;
+  color: #577292;
+}
+
+.info,
+.loading {
+  margin-top: 10px;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 0.9rem;
+}
+
+.info {
+  border: 1px solid #c6d8ea;
+  background: #f6faff;
+  color: #4d6888;
+}
+
+.loading {
+  border: 1px dashed #bdd1e8;
+  background: #f4f9ff;
+  color: #4a678d;
+}
+
+.table-wrap {
+  margin-top: 12px;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 820px;
+}
+
+th,
+td {
+  border-bottom: 1px solid #d5e3f1;
+  text-align: left;
+  padding: 10px 8px;
+  font-size: 0.88rem;
+  color: #355b84;
+}
+
+th {
+  background: #ecf4fd;
+  color: #2d5178;
+  font-size: 0.83rem;
+  text-transform: uppercase;
+}
+
+.pending-chip {
+  display: inline-flex;
+  border: 1px solid #e4b2b2;
+  border-radius: 999px;
+  background: #fff0f0;
+  color: #924545;
+  padding: 2px 8px;
+  font-size: 0.76rem;
+  font-weight: 700;
+}

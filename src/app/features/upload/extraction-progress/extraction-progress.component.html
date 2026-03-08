@@ -1,0 +1,38 @@
+<main class="extraction-page">
+	<app-app-shell
+		[platformTitle]="headerInfo.platformTitle"
+		[userName]="headerInfo.userName"
+		[userRole]="headerInfo.userRole"
+		[topNavItems]="topNavItems"
+		[primaryActionLabel]="'Upload Documents'"
+		[footerLeft]="'Other Documents'"
+		[footerRight]="'Help & Support'">
+		<section class="progress-shell">
+			<div class="hero-art" aria-hidden="true">
+				<div class="stack monitor"></div>
+				<div class="stack sheet"></div>
+				<div class="stack card"></div>
+				<div class="gear"></div>
+			</div>
+
+			<h2>Verifying &amp; Extracting Data...</h2>
+			<p class="stage-chip">{{ currentStageLabel }}</p>
+			<p class="subtext">{{ statusMessage }}</p>
+
+			<div class="progress-wrap" aria-label="Extraction progress">
+				<div class="progress-fill" [style.width.%]="progress"></div>
+			</div>
+
+			<div class="meta-row">
+				<span class="file-pill" *ngIf="fileName">{{ fileName }}</span>
+				<span class="score-pill">Quality Score {{ qualityScore }}%</span>
+			</div>
+
+			<div class="percent-chip">{{ progress }}%</div>
+
+			<div class="actions-row">
+				<button class="back-btn" type="button" (click)="onBackToUpload()">Back</button>
+			</div>
+		</section>
+	</app-app-shell>
+</main>

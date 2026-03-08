@@ -1,0 +1,138 @@
+.top-header {
+	background: linear-gradient(180deg, #d8e4f4 0%, #d1def1 100%);
+	border: 1px solid #bfd2e9;
+	border-radius: 10px;
+	min-height: 68px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 16px;
+}
+
+.brand-area {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.brand-icon {
+	width: 36px;
+	height: 36px;
+	border-radius: 8px;
+	display: grid;
+	place-items: center;
+	color: #fff;
+	font-weight: 700;
+	background: linear-gradient(180deg, #3f88d9 0%, #2e6eb9 100%);
+}
+
+.brand-area h1 {
+	margin: 0;
+	font-size: clamp(1.15rem, 2vw, 1.9rem);
+	color: #223f67;
+}
+
+.user-area {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.user-meta {
+	text-align: right;
+}
+
+.user-meta strong {
+	display: block;
+	font-size: 0.95rem;
+}
+
+.user-meta span {
+	font-size: 0.8rem;
+	color: #607b9e;
+}
+
+.upload-doc-btn {
+	border: 1px solid #d77724;
+	color: #fff;
+	border-radius: 9px;
+	height: 44px;
+	padding: 0 18px;
+	font-size: 1rem;
+	font-weight: 700;
+	cursor: pointer;
+	background: linear-gradient(180deg, #f59a32 0%, #e97722 100%);
+	box-shadow: 0 6px 14px rgba(40, 75, 122, 0.2);
+}
+
+.top-nav {
+	display: flex;
+	gap: 8px;
+	margin-top: 10px;
+	flex-wrap: wrap;
+}
+
+.top-nav button {
+	border: 1px solid #c4d4e8;
+	background: #edf3fb;
+	color: #34557f;
+	border-radius: 9px;
+	cursor: pointer;
+	height: 40px;
+	padding: 0 12px;
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.top-nav button span {
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background: #c3d6ef;
+	display: grid;
+	place-items: center;
+	font-size: 0.7rem;
+	font-weight: 700;
+}
+
+.top-nav button.active {
+	color: #fff;
+	border-color: #d77824;
+	background: linear-gradient(180deg, #f3962a 0%, #e87522 100%);
+}
+
+.top-nav button.active span {
+	background: rgba(255, 255, 255, 0.3);
+	color: #fff;
+}
+
+.shell-content {
+	margin-top: 12px;
+}
+
+.page-footer {
+	margin-top: 12px;
+	border-top: 1px solid #cad9eb;
+	min-height: 54px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 16px;
+	color: #45698f;
+	font-size: 1.03rem;
+}
+
+@media (max-width: 900px) {
+	.top-header {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 8px;
+		padding: 10px;
+	}
+
+	.user-area {
+		width: 100%;
+		justify-content: space-between;
+	}
+}

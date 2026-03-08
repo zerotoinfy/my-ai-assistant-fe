@@ -1,0 +1,45 @@
+<section class="ovd-review" *ngIf="payload">
+  <header class="ovd-head">
+    <div>
+      <h3>
+        Maker Review - {{ payload.documentLabel }}
+        <span class="state-chip" [ngClass]="stateClass">{{ stateLabel }}</span>
+      </h3>
+      <p>Reference: {{ payload.customerReference }}</p>
+    </div>
+    <span class="source-file">Source: {{ payload.fileName }}</span>
+  </header>
+
+  <div class="field-grid">
+    <article class="field-card" *ngFor="let field of editableFields">
+      <label [attr.for]="field.key">{{ field.label }}</label>
+      <input
+        [id]="field.key"
+        [value]="field.value"
+        (input)="onValueChange(field.key, $any($event.target).value)"
+        [readonly]="isLocked"
+        [class.readonly-input]="isLocked"
+        [attr.aria-required]="field.required" />
+      <footer>
+        <span class="required" *ngIf="field.required">Required</span>
+        <span class="confidence" [class]="'confidence ' + confidenceClass(field.confidence)">
+          Confidence {{ field.confidence }}%
+        </span>
+      </footer>
+    </article>
+  </div>
+
+  <div class="actions">
+    <button type="button" class="save-btn" (click)="onSaveDraft()" [disabled]="isSavingDraft || isSubmitting || isLocked">
+      {{ isSavingDraft ? 'Saving...' : 'Save Draft' }}
+    </button>
+    <button type="button" class="edit-btn" *ngIf="isLocked" (click)="onEditRequested()">Edit</button>
+    <button
+      type="button"
+      class="submit-btn"
+      (click)="onSubmitForChecker()"
+      [disabled]="!isDraftSaved || isSavingDraft || isSubmitting || !isLocked">
+      {{ isSubmitting ? 'Submitting...' : 'Submit To Checker' }}
+    </button>
+  </div>
+</section>

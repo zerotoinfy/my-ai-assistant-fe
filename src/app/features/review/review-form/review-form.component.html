@@ -1,0 +1,66 @@
+<section class="form-review" *ngIf="payload">
+  <header class="form-head">
+    <div>
+      <h3>
+        Maker Review - {{ payload.documentLabel }}
+        <span class="state-chip" [ngClass]="stateClass">{{ stateLabel }}</span>
+      </h3>
+      <p>
+        Extracted {{ totalExtractedFields }} fields across {{ payload.totalPages }} pages.
+        Previewing sampled pages for editing.
+      </p>
+    </div>
+    <span class="source-file">Source: {{ payload.fileName }}</span>
+  </header>
+
+  <div class="page-nav">
+    <button type="button" (click)="goToPreviousPage()" [disabled]="activePageIndex === 0">Previous</button>
+    <button
+      type="button"
+      *ngFor="let page of payload.pages; let index = index"
+      [class.active]="index === activePageIndex"
+      (click)="goToPage(index)">
+      Page {{ page.pageNumber }}
+    </button>
+    <button
+      type="button"
+      (click)="goToNextPage()"
+      [disabled]="activePageIndex === payload.pages.length - 1">
+      Next
+    </button>
+  </div>
+
+  <article class="page-editor" *ngIf="currentPage as page">
+    <h4>Page {{ page.pageNumber }} - {{ page.sectionTitle }}</h4>
+
+    <section class="section-card" *ngFor="let section of page.sections">
+      <h5>{{ section.title }}</h5>
+      <div class="field-grid">
+        <article class="field-row" *ngFor="let field of section.fields">
+          <label [attr.for]="field.key">{{ field.label }}</label>
+          <input
+            [id]="field.key"
+            [value]="field.value"
+            [readonly]="isLocked"
+            [class.readonly-input]="isLocked"
+            (input)="onFieldChange(field.key, $any($event.target).value)" />
+          <span class="meta">Confidence {{ field.confidence }}% <strong *ngIf="field.required">Required</strong></span>
+        </article>
+      </div>
+    </section>
+  </article>
+
+  <div class="actions">
+    <button type="button" class="save-btn" (click)="onSaveDraft()" [disabled]="isSavingDraft || isSubmitting || isLocked">
+      {{ isSavingDraft ? 'Saving...' : 'Save Draft' }}
+    </button>
+    <button type="button" class="edit-btn" *ngIf="isLocked" (click)="onEditRequested()">Edit</button>
+    <button
+      type="button"
+      class="submit-btn"
+      (click)="onSubmitForChecker()"
+      [disabled]="!isDraftSaved || isSavingDraft || isSubmitting || !isLocked">
+      {{ isSubmitting ? 'Submitting...' : 'Submit To Checker' }}
+    </button>
+  </div>
+</section>

@@ -1,0 +1,52 @@
+<section class="text-review" *ngIf="payload">
+  <header class="text-head">
+    <div>
+      <h3>
+        Maker Review - {{ payload.documentLabel }}
+        <span class="state-chip" [ngClass]="stateClass">{{ stateLabel }}</span>
+      </h3>
+      <p>Formatting is preserved line-by-line. Edit carefully before submit.</p>
+    </div>
+    <span class="source-file">Source: {{ payload.fileName }}</span>
+  </header>
+
+  <div class="text-layout">
+    <aside class="blocks-nav">
+      <button
+        type="button"
+        *ngFor="let block of editableBlocks"
+        [class.active]="block.id === selectedBlockId"
+        (click)="onSelectBlock(block.id)">
+        <strong>Page {{ block.page }}</strong>
+        <span>Confidence {{ block.confidence }}%</span>
+      </button>
+    </aside>
+
+    <article class="editor" *ngIf="selectedBlock as block">
+      <h4>Page {{ block.page }} Extracted Text</h4>
+      <pre class="formatted-preview">{{ block.formattedText }}</pre>
+      <label [attr.for]="'block-edit-' + block.id">Editable Text (format retained)</label>
+      <textarea
+        [id]="'block-edit-' + block.id"
+        [value]="block.formattedText"
+        [readonly]="isLocked"
+        [class.readonly-textarea]="isLocked"
+        (input)="onBlockTextChange(block.id, $any($event.target).value)">
+      </textarea>
+    </article>
+  </div>
+
+  <div class="actions">
+    <button type="button" class="save-btn" (click)="onSaveDraft()" [disabled]="isSavingDraft || isSubmitting || isLocked">
+      {{ isSavingDraft ? 'Saving...' : 'Save Draft' }}
+    </button>
+    <button type="button" class="edit-btn" *ngIf="isLocked" (click)="onEditRequested()">Edit</button>
+    <button
+      type="button"
+      class="submit-btn"
+      (click)="onSubmitForChecker()"
+      [disabled]="!isDraftSaved || isSavingDraft || isSubmitting || !isLocked">
+      {{ isSubmitting ? 'Submitting...' : 'Submit To Checker' }}
+    </button>
+  </div>
+</section>

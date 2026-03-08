@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 180" role="img" aria-label="PAN card illustration">
+  <defs>
+    <linearGradient id="panBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#c6dcf6"/>
+      <stop offset="1" stop-color="#9fc0e2"/>
+    </linearGradient>
+  </defs>
+  <rect width="360" height="180" rx="16" fill="url(#panBg)"/>
+  <rect x="18" y="26" width="324" height="122" rx="12" fill="#cce1f7" stroke="#9dbde0"/>
+  <text x="34" y="52" fill="#e14a3f" font-size="15" font-family="Arial" font-weight="700">INCOME TAX</text>
+  <circle cx="188" cy="54" r="13" fill="#6d92bb"/>
+  <rect x="34" y="67" width="158" height="8" rx="4" fill="#2e6aa8"/>
+  <rect x="34" y="83" width="142" height="7" rx="4" fill="#2e6aa8"/>
+  <rect x="34" y="98" width="130" height="7" rx="4" fill="#2e6aa8"/>
+  <ellipse cx="110" cy="128" rx="46" ry="20" fill="#dbbfd2"/>
+  <path d="M254 146c8-22 21-32 34-32s26 10 34 32" fill="#4d85c3"/>
+  <circle cx="289" cy="101" r="16" fill="#4d85c3"/>
+  <rect x="22" y="154" width="316" height="10" rx="5" fill="#dce9f7"/>
+</svg>

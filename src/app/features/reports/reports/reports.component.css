@@ -1,0 +1,4 @@
+:host { display: block; }
+.reports-page { min-height: 100vh; background: linear-gradient(180deg, #eaf1fb 0%, #f3f7fd 40%, #e7eef9 100%); padding: 10px 14px 16px; }
+.card { border: 1px solid #cfddef; border-radius: 10px; background: #f2f7fe; padding: 20px; }
+.card h2 { margin: 0; color: #2a4871; }

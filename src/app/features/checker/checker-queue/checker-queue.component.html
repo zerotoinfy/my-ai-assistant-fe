@@ -1,0 +1,53 @@
+<main class="checker-page">
+  <app-app-shell
+    [platformTitle]="headerInfo.platformTitle"
+    [userName]="headerInfo.userName"
+    [userRole]="headerInfo.userRole"
+    [topNavItems]="topNavItems"
+    [primaryActionLabel]="'Checker Queue'"
+    [footerLeft]="'Compliance Workflow'"
+    [footerRight]="'Help & Support'">
+    <section class="queue-shell">
+      <header class="queue-head">
+        <h2>Checker Verification Queue</h2>
+        <p>Mandatory checker decision states: Pending Checker, Verified, Rejected.</p>
+      </header>
+
+      <article class="feedback" *ngIf="feedbackMessage">{{ feedbackMessage }}</article>
+      <div class="loading" *ngIf="isLoading">Loading pending records...</div>
+
+      <div class="table-wrap" *ngIf="!isLoading && queueRows.length > 0">
+        <table>
+          <thead>
+            <tr>
+              <th>Document</th>
+              <th>File Name</th>
+              <th>Scenario</th>
+              <th>Submitted At</th>
+              <th>Reject Comment (Mandatory)</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let row of queueRows; trackBy: trackByRowId">
+              <td>{{ row.documentLabel }}</td>
+              <td>{{ row.fileName }}</td>
+              <td>{{ row.scenario }}</td>
+              <td>{{ row.updatedAt | date: 'medium' }}</td>
+              <td>
+                <textarea
+                  [value]="rejectComments[row.id] || ''"
+                  (input)="onCommentChange(row.id, $any($event.target).value)"
+                  placeholder="Enter rejection reason"></textarea>
+              </td>
+              <td class="actions">
+                <button type="button" class="verify" (click)="onVerify(row)">Verify</button>
+                <button type="button" class="reject" (click)="onReject(row)">Reject</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </app-app-shell>
+</main>

@@ -1,0 +1,80 @@
+<main class="review-page">
+  <app-app-shell
+    [platformTitle]="headerInfo.platformTitle"
+    [userName]="headerInfo.userName"
+    [userRole]="headerInfo.userRole"
+    [topNavItems]="topNavItems"
+    [primaryActionLabel]="'Upload Documents'"
+    [footerLeft]="'Other Documents'"
+    [footerRight]="'Help & Support'">
+    <section class="review-shell">
+      <header class="review-head">
+        <div>
+          <h2>Extracted Fields Review</h2>
+          <p *ngIf="sessionId">Session: {{ sessionId }}</p>
+        </div>
+        <button class="back-btn" type="button" (click)="onBackToUpload()">Back To Upload</button>
+      </header>
+
+      <div class="loading" *ngIf="isLoading">Loading extracted data...</div>
+
+      <article class="info-banner" *ngIf="!isLoading && infoMessage">
+        {{ infoMessage }}
+      </article>
+
+      <article class="save-banner" *ngIf="lastSavedAt">
+        Draft saved at {{ lastSavedAt }}
+      </article>
+
+      <app-review-ovd
+        *ngIf="!isLoading && ovdPayload"
+        [payload]="ovdPayload"
+        [isLocked]="isFieldsLocked"
+        [isDraftSaved]="isDraftSaved"
+        [isSavingDraft]="isSavingDraft"
+        [isSubmitting]="isSubmitting"
+        (saveDraft)="onSaveOvdDraft($event)"
+        (submitForChecker)="onSubmitOvd($event)"
+        (editRequested)="onEditRequested()">
+      </app-review-ovd>
+
+      <app-review-text
+        *ngIf="!isLoading && textPayload"
+        [payload]="textPayload"
+        [isLocked]="isFieldsLocked"
+        [isDraftSaved]="isDraftSaved"
+        [isSavingDraft]="isSavingDraft"
+        [isSubmitting]="isSubmitting"
+        (saveDraft)="onSaveTextDraft($event)"
+        (submitForChecker)="onSubmitText($event)"
+        (editRequested)="onEditRequested()">
+      </app-review-text>
+
+      <app-review-form
+        *ngIf="!isLoading && formPayload"
+        [payload]="formPayload"
+        [isLocked]="isFieldsLocked"
+        [isDraftSaved]="isDraftSaved"
+        [isSavingDraft]="isSavingDraft"
+        [isSubmitting]="isSubmitting"
+        (saveDraft)="onSaveFormDraft($event)"
+        (submitForChecker)="onSubmitForm($event)"
+        (editRequested)="onEditRequested()">
+      </app-review-form>
+
+      <section class="placeholder" *ngIf="!isLoading && payload && payload.scenario === 'misc'">
+        <h3>{{ payload.documentLabel }} Review Renderer</h3>
+        <p>
+          Scenario detected: {{ payload.scenario }}. The dedicated renderer for this document type will be added
+          in the next iteration while keeping source formatting intact.
+        </p>
+      </section>
+
+      <div class="review-bottom-actions" *ngIf="!isLoading && payload && payload.scenario !== 'misc'">
+        <button type="button" class="history-btn" [disabled]="!canShowHistory" (click)="onOpenHistory()">
+          Show History
+        </button>
+      </div>
+    </section>
+  </app-app-shell>
+</main>

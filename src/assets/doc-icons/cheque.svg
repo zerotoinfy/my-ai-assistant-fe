@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 180" role="img" aria-label="Cheque illustration">
+  <rect width="360" height="180" rx="16" fill="#d8ead3"/>
+  <rect x="20" y="34" width="320" height="112" rx="10" fill="#f7fbf6" stroke="#b6d2ad"/>
+  <rect x="38" y="58" width="150" height="8" rx="4" fill="#5b7f5b"/>
+  <rect x="38" y="78" width="124" height="8" rx="4" fill="#7b9b77"/>
+  <rect x="38" y="98" width="112" height="8" rx="4" fill="#7b9b77"/>
+  <rect x="226" y="54" width="96" height="44" rx="8" fill="#e6f3e1" stroke="#bfd8b7"/>
+  <text x="274" y="83" text-anchor="middle" fill="#4f7c4f" font-size="18" font-family="Arial" font-weight="700">₹</text>
+  <rect x="208" y="112" width="114" height="10" rx="5" fill="#5f835f"/>
+</svg>

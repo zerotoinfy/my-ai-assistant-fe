@@ -1,0 +1,210 @@
+:host {
+  display: block;
+}
+
+.text-review {
+  border: 1px solid #c7d9ee;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #eef5fd 0%, #f9fbff 100%);
+  padding: 16px;
+}
+
+.text-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.text-head h3 {
+  margin: 0;
+  color: #264b72;
+}
+
+.state-chip {
+  display: inline-block;
+  margin-left: 8px;
+  border: 1px solid;
+  border-radius: 999px;
+  padding: 3px 9px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  vertical-align: middle;
+}
+
+.state-chip.state-editable {
+  border-color: #a9c7e5;
+  background: #e9f3ff;
+  color: #2f5e90;
+}
+
+.state-chip.state-locked {
+  border-color: #b6ddc2;
+  background: #eaf8ef;
+  color: #2f7448;
+}
+
+.state-chip.state-submitting {
+  border-color: #e2c995;
+  background: #fff4df;
+  color: #8b651e;
+}
+
+.text-head p {
+  margin: 4px 0 0;
+  color: #5a7393;
+  font-size: 0.9rem;
+}
+
+.source-file {
+  border: 1px solid #bed3ea;
+  border-radius: 999px;
+  background: #f4f9ff;
+  color: #355d89;
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.text-layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 12px;
+}
+
+.blocks-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.blocks-nav button {
+  border: 1px solid #c8d8eb;
+  border-radius: 10px;
+  background: #f5f9ff;
+  color: #3d6289;
+  text-align: left;
+  padding: 8px 10px;
+  cursor: pointer;
+}
+
+.blocks-nav button.active {
+  border-color: #6da6db;
+  background: #e8f2ff;
+}
+
+.blocks-nav strong {
+  display: block;
+  font-size: 0.92rem;
+}
+
+.blocks-nav span {
+  font-size: 0.78rem;
+}
+
+.editor {
+  border: 1px solid #d1e0f1;
+  border-radius: 10px;
+  background: #fff;
+  padding: 10px;
+}
+
+.editor h4 {
+  margin: 0;
+  color: #30547b;
+}
+
+.formatted-preview {
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px dashed #bcd0e8;
+  border-radius: 8px;
+  background: #f8fbff;
+  font-size: 0.86rem;
+  color: #2b4f77;
+  white-space: pre-wrap;
+}
+
+.editor label {
+  display: block;
+  color: #3f6287;
+  font-weight: 600;
+  font-size: 0.84rem;
+  margin-bottom: 6px;
+}
+
+.editor textarea {
+  width: 100%;
+  min-height: 170px;
+  border: 1px solid #bfd3ea;
+  border-radius: 8px;
+  padding: 10px;
+  color: #274971;
+  font-size: 0.9rem;
+  white-space: pre;
+  resize: vertical;
+}
+
+.editor textarea.readonly-textarea {
+  background: #f2f6fc;
+  color: #4b6a8f;
+  cursor: not-allowed;
+}
+
+.actions {
+  margin-top: 12px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.save-btn,
+.edit-btn,
+.submit-btn {
+  min-width: 140px;
+  height: 40px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.save-btn {
+  border: 1px solid #2f6fb3;
+  background: linear-gradient(180deg, #4d8fd4 0%, #2c6cb0 100%);
+  color: #fff;
+}
+
+.submit-btn {
+  border: 1px solid #9ebde0;
+  background: linear-gradient(180deg, #f8fbff 0%, #e5eef9 100%);
+  color: #355b86;
+}
+
+.edit-btn {
+  border: 1px solid #9ebde0;
+  background: linear-gradient(180deg, #f7fbff 0%, #e2edf9 100%);
+  color: #355d87;
+}
+
+.actions button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 860px) {
+  .text-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .blocks-nav {
+    flex-direction: row;
+    overflow-x: auto;
+  }
+
+  .blocks-nav button {
+    min-width: 150px;
+  }
+}

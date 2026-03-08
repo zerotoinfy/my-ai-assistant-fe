@@ -1,0 +1,131 @@
+<main class="history-page">
+  <app-app-shell
+    [platformTitle]="headerInfo.platformTitle"
+    [userName]="headerInfo.userName"
+    [userRole]="headerInfo.userRole"
+    [topNavItems]="topNavItems"
+    [primaryActionLabel]="'Upload Documents'"
+    [footerLeft]="'Other Documents'"
+    [footerRight]="'Help & Support'">
+    <section class="history-shell">
+      <header class="head">
+        <h2>Maker Work History</h2>
+        <p>Track reviewed documents and manage update/delete actions.</p>
+      </header>
+
+      <section class="filters">
+        <label>
+          Search (Session/Document)
+          <input
+            type="text"
+            [value]="searchTerm"
+            (input)="searchTerm = $any($event.target).value"
+            placeholder="sess-... or document name" />
+        </label>
+
+        <label>
+          Status
+          <select [value]="statusFilter" (change)="statusFilter = $any($event.target).value">
+            <option *ngFor="let option of statusOptions" [value]="option">{{ option }}</option>
+          </select>
+        </label>
+
+        <label>
+          Verification Status
+          <select [value]="verificationFilter" (change)="verificationFilter = $any($event.target).value">
+            <option *ngFor="let option of verificationOptions" [value]="option">{{ option }}</option>
+          </select>
+        </label>
+
+        <label>
+          From Date
+          <input type="date" [value]="fromDate" (change)="fromDate = $any($event.target).value" />
+        </label>
+
+        <label>
+          To Date
+          <input type="date" [value]="toDate" (change)="toDate = $any($event.target).value" />
+        </label>
+
+        <div class="filter-actions">
+          <button type="button" (click)="onApplyFilters()">Apply</button>
+          <button type="button" class="secondary" (click)="onResetFilters()">Reset</button>
+        </div>
+      </section>
+
+      <article class="info" *ngIf="infoMessage">{{ infoMessage }}</article>
+
+      <div class="loading" *ngIf="isLoading">Loading history...</div>
+
+      <div class="table-wrap" *ngIf="!isLoading && rows.length > 0">
+        <table>
+          <thead>
+            <tr>
+              <th>Document</th>
+              <th>File Name</th>
+              <th>Scenario</th>
+              <th>Status</th>
+              <th>Verification Status</th>
+              <th>Last Updated</th>
+              <th>Action Note</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let row of rows; trackBy: trackByRowId">
+              <td>{{ row.documentLabel }}</td>
+              <td>{{ row.fileName }}</td>
+              <td>{{ row.scenario }}</td>
+              <td>
+                <span
+                  class="status"
+                  [class.pending]="row.status === 'Pending Checker'"
+                  [class.verified]="row.status === 'Verified'"
+                  [class.rejected]="row.status === 'Rejected'">
+                  {{ row.status }}
+                </span>
+              </td>
+              <td>
+                <span class="verification" [class.verified]="row.checkerDecision === 'Verified'" [class.pending]="row.checkerDecision !== 'Verified'">
+                  <span class="icon" [innerHTML]="row.checkerDecision === 'Verified' ? '&#10003;' : '&#10007;'"></span>
+                  {{ row.checkerDecision }}
+                </span>
+              </td>
+              <td>{{ row.updatedAt | date: 'medium' }}</td>
+              <td>{{ row.makerAction }}</td>
+              <td class="actions">
+                <button type="button" (click)="onOpenReview(row.sessionId)">Open Review</button>
+                <button type="button" class="danger" (click)="onDelete(row.id)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <section class="pagination" *ngIf="!isLoading">
+        <div class="meta">
+          <span>Total: {{ totalItems }}</span>
+          <span>Page {{ currentPage }} of {{ totalPages }}</span>
+        </div>
+
+        <div class="controls">
+          <label>
+            Rows
+            <select [value]="pageSize" (change)="onPageSizeChange($any($event.target).value)">
+              <option value="10">10</option>
+              <option value="20">20</option>
+              <option value="50">50</option>
+            </select>
+          </label>
+
+          <button type="button" (click)="onPreviousPage()" [disabled]="currentPage <= 1 || isLoading">
+            Previous
+          </button>
+          <button type="button" (click)="onNextPage()" [disabled]="currentPage >= totalPages || isLoading">
+            Next
+          </button>
+        </div>
+      </section>
+    </section>
+  </app-app-shell>
+</main>

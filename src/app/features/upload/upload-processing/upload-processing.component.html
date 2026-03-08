@@ -1,0 +1,52 @@
+<main class="upload-page">
+	<app-app-shell
+		[platformTitle]="headerInfo.platformTitle"
+		[userName]="headerInfo.userName"
+		[userRole]="headerInfo.userRole"
+		[topNavItems]="topNavItems"
+		[primaryActionLabel]="'Upload Documents'"
+		[footerLeft]="'Other Documents'"
+		[footerRight]="'Help & Support'">
+		<section class="upload-shell">
+			<h2>{{ uploadTitle }}</h2>
+			<p class="subtext">Please upload your {{ selectedDocumentLabel }} document for verification.</p>
+			<div class="progress-wrap" aria-label="Processing progress">
+				<div class="progress-fill" [style.width.%]="uploadProgress"></div>
+			</div>
+
+			<div class="content-grid">
+				<div class="left-illustration" aria-hidden="true">
+					<div class="device screen"></div>
+					<div class="device tablet"></div>
+					<div class="device paper"></div>
+				</div>
+
+				<div
+					class="drop-zone"
+					[class.dragging]="isDragging"
+					(dragover)="onDragOver($event)"
+					(dragleave)="onDragLeave()"
+					(drop)="onDrop($event)">
+					<div class="gear" aria-hidden="true"></div>
+					<p>
+						Drag &amp; drop or click to upload
+					</p>
+					<p class="browse-copy">
+						JPG, PNG, PDF
+						or
+						<label for="filePicker">Browse</label>
+					</p>
+					<input id="filePicker" type="file" (change)="onFileSelected($event)" />
+					<div class="file-name" *ngIf="fileName">{{ fileName }}</div>
+				</div>
+			</div>
+
+			<div class="action-row">
+				<button class="back-btn" type="button" [routerLink]="'/dashboard/upload-documents'">Back</button>
+				<button class="upload-btn" type="button" [disabled]="!fileName" (click)="onUpload()">
+					{{ isUploading ? 'Starting...' : 'Start Verification' }}
+				</button>
+			</div>
+		</section>
+	</app-app-shell>
+</main>

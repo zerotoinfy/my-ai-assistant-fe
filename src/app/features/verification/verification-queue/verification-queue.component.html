@@ -1,0 +1,47 @@
+<main class="queue-page">
+  <app-app-shell
+    [platformTitle]="'SBI Document Extractor'"
+    [userName]="'John Doe'"
+    [userRole]="'KYC Manager'"
+    [topNavItems]="topNavItems"
+    [primaryActionLabel]="'Upload Documents'"
+    [footerLeft]="'Other Documents'"
+    [footerRight]="'Help & Support'">
+    <section class="queue-shell">
+      <header class="head">
+        <h2>Verification Queue</h2>
+        <p>Records filtered from history where verification status is pending.</p>
+      </header>
+
+      <article class="info" *ngIf="infoMessage">{{ infoMessage }}</article>
+      <div class="loading" *ngIf="isLoading">Loading pending records...</div>
+
+      <div class="table-wrap" *ngIf="!isLoading && rows.length > 0">
+        <table>
+          <thead>
+            <tr>
+              <th>Document</th>
+              <th>Session</th>
+              <th>Scenario</th>
+              <th>Status</th>
+              <th>Verification Status</th>
+              <th>Last Updated</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let row of rows; trackBy: trackByRowId">
+              <td>{{ row.documentLabel }}</td>
+              <td>{{ row.sessionId }}</td>
+              <td>{{ row.scenario }}</td>
+              <td>{{ row.status }}</td>
+              <td>
+                <span class="pending-chip">Pending Checker</span>
+              </td>
+              <td>{{ row.updatedAt | date: 'medium' }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </app-app-shell>
+</main>

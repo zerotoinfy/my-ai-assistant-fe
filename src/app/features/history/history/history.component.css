@@ -1,0 +1,274 @@
+:host {
+  display: block;
+}
+
+.history-page {
+  min-height: 100vh;
+  background: radial-gradient(circle at 80% 0, #dbeafb 0, #dbeafb 28%, transparent 64%),
+    linear-gradient(180deg, #e9f2fc 0%, #f4f8ff 52%, #e4eff9 100%);
+  padding: 10px 14px 16px;
+}
+
+.history-shell {
+  border: 1px solid #c9dbee;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #edf5fd 0%, #f9fbff 100%);
+  padding: 16px;
+}
+
+.head h2 {
+  margin: 0;
+  color: #22476d;
+}
+
+.head p {
+  margin: 4px 0 0;
+  color: #5a7495;
+}
+
+.info,
+.loading {
+  margin-top: 10px;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 0.9rem;
+}
+
+.info {
+  border: 1px solid #c6d8ea;
+  background: #f6faff;
+  color: #4d6888;
+}
+
+.loading {
+  border: 1px dashed #bdd1e8;
+  background: #f4f9ff;
+  color: #4a678d;
+}
+
+.filters {
+  margin-top: 12px;
+  border: 1px solid #d0def0;
+  border-radius: 10px;
+  background: #f6faff;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(190px, 1fr));
+  gap: 10px;
+}
+
+.filters label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  color: #355b84;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.filters input,
+.filters select {
+  height: 34px;
+  border: 1px solid #bfd3ea;
+  border-radius: 8px;
+  padding: 0 9px;
+  color: #2f547d;
+  background: #fff;
+  font-size: 0.85rem;
+}
+
+.filter-actions {
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+}
+
+.filter-actions button {
+  height: 34px;
+  border-radius: 8px;
+  border: 1px solid #2f6fb3;
+  background: linear-gradient(180deg, #4d8fd4 0%, #2c6cb0 100%);
+  color: #fff;
+  padding: 0 12px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.filter-actions button.secondary {
+  border-color: #bed2e8;
+  background: #f5f9ff;
+  color: #325b87;
+}
+
+.table-wrap {
+  margin-top: 12px;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 960px;
+}
+
+th,
+td {
+  border-bottom: 1px solid #d5e3f1;
+  text-align: left;
+  padding: 10px 8px;
+  font-size: 0.88rem;
+  color: #355b84;
+}
+
+th {
+  background: #ecf4fd;
+  color: #2d5178;
+  font-size: 0.83rem;
+  text-transform: uppercase;
+}
+
+.status {
+  display: inline-block;
+  border: 1px solid;
+  border-radius: 999px;
+  padding: 3px 8px;
+  font-weight: 700;
+  font-size: 0.75rem;
+}
+
+.status.pending {
+  border-color: #e3c893;
+  background: #fff4df;
+  color: #896117;
+}
+
+.status.verified {
+  border-color: #b5ddc1;
+  background: #e9f8ef;
+  color: #2f7448;
+}
+
+.status.rejected {
+  border-color: #e4b2b2;
+  background: #fff0f0;
+  color: #924545;
+}
+
+.verification {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid;
+  border-radius: 999px;
+  padding: 3px 8px;
+  font-weight: 700;
+  font-size: 0.75rem;
+}
+
+.verification .icon {
+  width: 14px;
+  text-align: center;
+  line-height: 1;
+}
+
+.verification.verified {
+  border-color: #b5ddc1;
+  background: #e9f8ef;
+  color: #2f7448;
+}
+
+.verification.pending {
+  border-color: #e4b2b2;
+  background: #fff0f0;
+  color: #924545;
+}
+
+.actions {
+  white-space: nowrap;
+}
+
+.actions button {
+  height: 30px;
+  border-radius: 7px;
+  border: 1px solid #bed2e8;
+  background: #f5f9ff;
+  color: #325b87;
+  padding: 0 10px;
+  margin-right: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.actions button.danger {
+  border-color: #e4b2b2;
+  background: #fff0f0;
+  color: #924545;
+}
+
+.pagination {
+  margin-top: 12px;
+  border-top: 1px solid #d6e4f3;
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.pagination .meta {
+  display: flex;
+  gap: 10px;
+  color: #4f6d90;
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+.pagination .controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pagination .controls label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #3d628a;
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.pagination .controls select,
+.pagination .controls button {
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid #bed2e8;
+  background: #f5f9ff;
+  color: #325b87;
+  padding: 0 10px;
+  font-weight: 700;
+}
+
+.pagination .controls button {
+  cursor: pointer;
+}
+
+.pagination .controls button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+@media (max-width: 640px) {
+  .history-page {
+    padding: 8px;
+  }
+
+  .history-shell {
+    padding: 12px;
+  }
+
+  .filters {
+    grid-template-columns: 1fr;
+  }
+}

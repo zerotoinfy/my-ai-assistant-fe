@@ -1,0 +1,50 @@
+<main class="selector-page" *ngIf="!isLoading; else loadingView">
+	<app-app-shell
+		[platformTitle]="headerInfo.platformTitle"
+		[userName]="headerInfo.userName"
+		[userRole]="headerInfo.userRole"
+		[topNavItems]="topNavItems"
+		[primaryActionLabel]="'Upload Documents'"
+		[footerLeft]="'Other Documents'"
+		[footerRight]="'Help & Support'">
+		<section class="selector-shell">
+			<p class="intro">Welcome! Please select the document type to proceed.</p>
+
+			<section class="category-block" *ngFor="let section of categorySections">
+				<h2>{{ section.title }}</h2>
+				<div class="doc-grid">
+					<article
+						class="doc-card"
+						*ngFor="let document of section.documents"
+						[class.selected]="isSelected(document.id)"
+						(click)="onSelectDocument(document.id)">
+						<button class="tick-pill" type="button" *ngIf="isSelected(document.id)" aria-label="selected">
+							<svg viewBox="0 0 16 16" focusable="false" aria-hidden="true">
+								<path d="M3 8.2 6.2 12 13 4.2" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+						</button>
+						<h3>{{ document.label }}</h3>
+						<div class="doc-art" [class]="'doc-art ' + document.artClass">
+							<img class="doc-svg" [src]="getDocAsset(document.artClass)" [alt]="document.label + ' preview'" />
+						</div>
+					</article>
+				</div>
+			</section>
+
+			<div class="selector-actions">
+				<button
+					class="continue-btn"
+					type="button"
+					[disabled]="!selectedDocumentId"
+					[routerLink]="'/dashboard/upload-documents/process'"
+					[queryParams]="{ documentId: selectedDocumentId }">
+					Continue
+				</button>
+			</div>
+		</section>
+	</app-app-shell>
+</main>
+
+<ng-template #loadingView>
+	<main class="loading-screen">Loading documents...</main>
+</ng-template>

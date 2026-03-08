@@ -1,0 +1,29 @@
+<header class="top-header">
+	<div class="brand-area">
+		<div class="brand-icon">S</div>
+		<h1>{{ platformTitle }}</h1>
+	</div>
+	<div class="user-area">
+		<div class="user-meta">
+			<strong>{{ userName }}</strong>
+			<span>{{ userRole }}</span>
+		</div>
+		<button class="upload-doc-btn" type="button" *ngIf="actionVisible">{{ primaryActionLabel }}</button>
+	</div>
+</header>
+
+<nav class="top-nav" aria-label="Primary Navigation" *ngIf="topNavItems.length > 0">
+	<button type="button" *ngFor="let item of topNavItems" [class.active]="isTopNavActive(item.label, item.isActive)" (click)="onTopNavClick(item.label)">
+		<span>{{ item.icon }}</span>{{ item.label }}
+	</button>
+</nav>
+
+<section class="shell-content">
+	<ng-content></ng-content>
+</section>
+
+<footer class="page-footer" *ngIf="footerVisible">
+	<span>{{ footerLeft }}</span>
+	<span>|</span>
+	<span>{{ footerRight }}</span>
+</footer>

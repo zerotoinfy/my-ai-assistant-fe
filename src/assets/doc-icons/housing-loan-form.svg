@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 180" role="img" aria-label="Housing loan form illustration">
+  <defs>
+    <linearGradient id="hlfBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d6ebff"/>
+      <stop offset="1" stop-color="#b7d9f7"/>
+    </linearGradient>
+  </defs>
+  <rect width="360" height="180" rx="16" fill="url(#hlfBg)"/>
+  <path d="M36 134h128l-10-84H46z" fill="#89b08a"/>
+  <path d="M68 114V72l46-32 46 32v42z" fill="#f6fbff" stroke="#5b80ad" stroke-width="6"/>
+  <rect x="106" y="92" width="18" height="22" fill="#4e6f95"/>
+  <rect x="142" y="68" width="12" height="44" fill="#4e6f95"/>
+  <rect x="180" y="42" width="120" height="96" rx="8" fill="#f8fbff" stroke="#c7d9ef" stroke-width="3" transform="rotate(-8 240 90)"/>
+  <rect x="194" y="70" width="46" height="36" rx="6" fill="#dbe9f8"/>
+  <circle cx="302" cy="74" r="18" fill="#7bc55d"/>
+  <text x="302" y="80" text-anchor="middle" fill="#fff" font-size="20" font-family="Arial" font-weight="700">$</text>
+  <rect x="146" y="104" width="88" height="48" rx="8" fill="#fff" stroke="#f1b356" stroke-width="4"/>
+  <path d="M164 122l8 8 12-16" stroke="#67a66a" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M164 138l8 8 12-16" stroke="#67a66a" stroke-width="4" fill="none" stroke-linecap="round"/>
+</svg>

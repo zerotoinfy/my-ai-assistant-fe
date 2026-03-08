@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 180" role="img" aria-label="Account opening form illustration">
+  <defs>
+    <linearGradient id="aofBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#dce8f6"/>
+      <stop offset="1" stop-color="#c2d6ee"/>
+    </linearGradient>
+  </defs>
+  <rect width="360" height="180" rx="16" fill="url(#aofBg)"/>
+  <rect x="80" y="26" width="120" height="130" rx="12" fill="#f8fbff" stroke="#7da4cf" stroke-width="5"/>
+  <circle cx="140" cy="30" r="10" fill="#7da4cf"/>
+  <rect x="106" y="56" width="66" height="36" rx="6" fill="#dce8f7"/>
+  <rect x="106" y="102" width="68" height="6" rx="3" fill="#7da4cf"/>
+  <rect x="106" y="115" width="76" height="6" rx="3" fill="#7da4cf"/>
+  <rect x="106" y="128" width="58" height="6" rx="3" fill="#7da4cf"/>
+  <rect x="208" y="86" width="52" height="52" rx="8" fill="#d8e4f2"/>
+  <rect x="242" y="114" width="58" height="10" rx="5" fill="#5d83b0" transform="rotate(-35 242 114)"/>
+</svg>

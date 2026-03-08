@@ -1,0 +1,127 @@
+:host {
+  display: block;
+}
+
+.review-page {
+  min-height: 100vh;
+  background: radial-gradient(circle at 76% 0, #dceafb 0, #dceafb 30%, transparent 64%),
+    linear-gradient(180deg, #e8f1fb 0%, #f3f8ff 56%, #e5effa 100%);
+  padding: 10px 14px 16px;
+}
+
+.review-shell {
+  border: 1px solid #c9daee;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #edf5fd 0%, #f9fbff 100%);
+  padding: 16px;
+}
+
+.review-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.review-head h2 {
+  margin: 0;
+  color: #22466d;
+  font-size: 1.4rem;
+}
+
+.review-head p {
+  margin: 4px 0 0;
+  color: #5c7696;
+  font-size: 0.88rem;
+}
+
+.back-btn {
+  min-width: 130px;
+  height: 38px;
+  border-radius: 8px;
+  border: 1px solid #b6cde6;
+  background: linear-gradient(180deg, #f7faff 0%, #e6eef8 100%);
+  color: #395d84;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.loading,
+.info-banner,
+.save-banner {
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+}
+
+.loading {
+  border: 1px dashed #b8cee7;
+  background: #f5f9ff;
+  color: #4b6990;
+}
+
+.info-banner {
+  border: 1px solid #d4e0ee;
+  background: #f7fbff;
+  color: #49678c;
+}
+
+.save-banner {
+  border: 1px solid #b8ddc3;
+  background: #ebf8ef;
+  color: #2f6f45;
+}
+
+.placeholder {
+  border: 1px dashed #bdcee3;
+  border-radius: 10px;
+  background: #f8fbff;
+  color: #4e6889;
+  padding: 12px;
+}
+
+.placeholder h3 {
+  margin: 0 0 6px;
+  color: #2e4f78;
+}
+
+.placeholder p {
+  margin: 0;
+}
+
+.review-bottom-actions {
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px solid #d9e5f4;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.history-btn {
+  min-width: 140px;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid #9ebfe1;
+  background: linear-gradient(180deg, #f8fbff 0%, #e5eef9 100%);
+  color: #355b86;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.history-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+@media (max-width: 640px) {
+  .review-page {
+    padding: 8px;
+  }
+
+  .review-shell {
+    padding: 12px;
+  }
+}

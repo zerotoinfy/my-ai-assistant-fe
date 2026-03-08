@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 180" role="img" aria-label="Passport illustration">
+  <defs>
+    <linearGradient id="pBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1c3a67"/>
+      <stop offset="1" stop-color="#122c4e"/>
+    </linearGradient>
+  </defs>
+  <rect width="360" height="180" rx="16" fill="url(#pBg)"/>
+  <rect x="104" y="18" width="152" height="144" rx="12" fill="#243f66" stroke="#38557e"/>
+  <text x="180" y="45" text-anchor="middle" fill="#d2b66f" font-size="13" font-family="Arial" font-weight="700">INDIAN</text>
+  <text x="180" y="61" text-anchor="middle" fill="#d2b66f" font-size="13" font-family="Arial" font-weight="700">PASSPORT</text>
+  <path d="M180 70l18 12-6 20h-24l-6-20z" fill="#d2b66f"/>
+  <rect x="160" y="106" width="40" height="4" rx="2" fill="#d2b66f"/>
+  <text x="180" y="128" text-anchor="middle" fill="#d2b66f" font-size="11" font-family="Arial">REPUBLIC OF INDIA</text>
+  <rect x="22" y="154" width="316" height="10" rx="5" fill="#9db0c6"/>
+</svg>

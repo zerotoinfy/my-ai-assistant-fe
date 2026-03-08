@@ -1,0 +1,146 @@
+<main class="dashboard-page" *ngIf="!isLoading; else loadingView">
+	<header class="top-header">
+		<div class="brand-area">
+			<div class="brand-icon">S</div>
+			<h1>{{ headerInfo.platformTitle }}</h1>
+		</div>
+
+		<div class="user-area">
+			<div class="user-meta">
+				<strong>{{ headerInfo.userName }}</strong>
+				<span>{{ headerInfo.userRole }}</span>
+			</div>
+			<button class="header-btn" type="button" aria-label="Alerts">
+				Alerts <span>{{ headerInfo.alerts }}</span>
+			</button>
+			<button class="header-btn" type="button" aria-label="Settings">Settings</button>
+		</div>
+	</header>
+
+	<nav class="top-nav" aria-label="Primary Navigation">
+		<button type="button" *ngFor="let item of topNavItems" [class.active]="item.isActive" (click)="onTopNavClick(item.label)">
+			<span>{{ item.icon }}</span>{{ item.label }}
+		</button>
+	</nav>
+
+	<section class="hero">
+		<div class="hero-copy">
+			<h2>Verify and Process Documents in Seconds</h2>
+			<p>Upload PAN, Aadhaar, Bank Forms, and Loan Applications securely. Get structured data instantly.</p>
+		</div>
+		<div class="hero-art">
+			<button class="hero-upload-cta" type="button" aria-label="Upload Document" [routerLink]="'/dashboard/upload-documents'">
+				<svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+					<path d="M12 3l4 4h-3v6h-2V7H8l4-4zm-7 11h14v6a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-6zm3 3a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z" fill="currentColor"/>
+				</svg>
+				<span>Upload Document</span>
+			</button>
+		</div>
+	</section>
+
+	<section class="workspace-grid">
+		<aside class="left-sidenav" aria-label="Side Navigation">
+			<button type="button" *ngFor="let item of sideNavItems" [class.active]="item.isActive" (click)="onSideNavClick(item.label)">
+				<span>{{ item.icon }}</span>{{ item.label }}
+			</button>
+		</aside>
+
+		<div class="main-content">
+			<div class="supported-docs-divider" role="presentation">
+				<span>Supported Documents</span>
+			</div>
+
+			<section class="ovd-panel">
+				<div class="ovd-head">
+					<h3>{{ selectedCategoryHeading }}</h3>
+					<div class="category-chips">
+						<button
+							type="button"
+							*ngFor="let category of documentCategories"
+							[class.active]="category.name === selectedCategory"
+							(click)="onSelectCategory(category.name)">
+							{{ category.name }}
+						</button>
+					</div>
+				</div>
+
+				<div class="supported-types" aria-label="Supported document types">
+					<strong>{{ supportedLabel }}</strong>
+					<div class="type-tags">
+						<span *ngFor="let type of selectedCategoryTypes">{{ type }}</span>
+					</div>
+				</div>
+
+				<div class="ovd-grid">
+					<article class="ovd-card" *ngFor="let card of ovdCards">
+						<div class="doc-art" [class]="'doc-art ' + card.artClass">
+							<img class="doc-svg" [src]="getDocAsset(card.artClass)" [alt]="card.title + ' document preview'" />
+						</div>
+						<p>{{ card.subtitle }}</p>
+					</article>
+				</div>
+			</section>
+
+			<section class="stats-panel">
+				<article class="stat-card" *ngFor="let stat of stats">
+					<h4>{{ stat.value }}</h4>
+					<p>{{ stat.label }}</p>
+				</article>
+			</section>
+		</div>
+
+		<aside class="right-rail">
+			<section class="activity-panel">
+				<div class="panel-head">
+					<h3>Recent Activity</h3>
+					<button type="button">View All</button>
+				</div>
+				<article class="activity-item" *ngFor="let activity of recentActivities">
+					<h4>{{ activity.title }}</h4>
+					<p>{{ activity.id }}</p>
+					<div class="activity-meta">
+						<span>{{ activity.age }}</span>
+						<strong [class.processing]="activity.status === 'Processing'" [class.verified]="activity.status === 'Verified'">{{ activity.status }}</strong>
+					</div>
+				</article>
+				<button class="btn btn-blue" type="button">Resume Verification</button>
+			</section>
+
+			<section class="mini-actions">
+				<h3>Suggested Actions</h3>
+				<p>{{ firstSuggestedAction ? firstSuggestedAction.text : '' }}</p>
+				<button class="btn btn-blue" type="button">{{ firstSuggestedAction ? firstSuggestedAction.actionLabel : '' }}</button>
+			</section>
+		</aside>
+	</section>
+
+	<section class="suggested-panel">
+		<h3>Suggested Actions</h3>
+		<article class="suggested-row" *ngFor="let action of suggestedActions">
+			<p>{{ action.text }}</p>
+			<button class="btn btn-blue" type="button">{{ action.actionLabel }}</button>
+		</article>
+	</section>
+
+	<section class="benefits-panel">
+		<h3>Key Benefits</h3>
+		<div class="benefit-grid">
+			<article *ngFor="let benefit of benefits">
+				<h4>{{ benefit.title }}</h4>
+				<p>{{ benefit.subtitle }}</p>
+			</article>
+		</div>
+	</section>
+
+	<footer class="page-footer">
+		<span>Privacy Policy</span>
+		<span>|</span>
+		<span>Terms</span>
+		<span>|</span>
+		<span>Help &amp; Support</span>
+	</footer>
+</main>
+
+<ng-template #loadingView>
+	<main class="loading-screen">Loading dashboard...</main>
+</ng-template>
